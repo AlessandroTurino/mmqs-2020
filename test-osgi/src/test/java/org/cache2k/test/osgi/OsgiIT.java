@@ -46,7 +46,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  * @author Jens Wilke
  */
-@org.junit.runner.RunWith(PaxExam.class)
+//@org.junit.runner.RunWith(PaxExam.class)
 @ExamReactorStrategy(PerMethod.class)
 public class OsgiIT {
 
@@ -137,7 +137,7 @@ public class OsgiIT {
 
   @Test
   public void testDefaultCacheManager() {
-    assertEquals("default", CacheManager.getInstance().getName());
+    assertEquals("specialDefaultName", CacheManager.getInstance().getName());
   }
 
   @Test

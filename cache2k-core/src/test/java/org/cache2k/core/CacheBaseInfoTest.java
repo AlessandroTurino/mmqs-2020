@@ -39,9 +39,9 @@ public class CacheBaseInfoTest {
   @Test
   public void testMSecsPerLoadFormatting() {
     double v = 2.3456789;
-    assertEquals("2.346", CacheBaseInfo.formatMillisPerLoad(v));
+    assertEquals("2,346", CacheBaseInfo.formatMillisPerLoad(v));
     v = 0.04;
-    assertEquals("0.04", CacheBaseInfo.formatMillisPerLoad(v));
+    assertEquals("0,04", CacheBaseInfo.formatMillisPerLoad(v));
   }
 
   @Test

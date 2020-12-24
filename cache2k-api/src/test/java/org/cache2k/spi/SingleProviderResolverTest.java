@@ -35,12 +35,12 @@ public class SingleProviderResolverTest {
     assertNull(SingleProviderResolver.resolve(Unknown.class));
   }
 
-  @Test(expected = LinkageError.class)
+  @Test(expected = ServiceConfigurationError.class)
   public void testUnknownButMandatory() {
     SingleProviderResolver.resolveMandatory(Unknown.class);
   }
 
-  @Test(expected = LinkageError.class)
+  @Test(expected = ServiceConfigurationError.class)
   public void testNonsense() {
     SingleProviderResolver.resolveMandatory(Integer.class);
   }

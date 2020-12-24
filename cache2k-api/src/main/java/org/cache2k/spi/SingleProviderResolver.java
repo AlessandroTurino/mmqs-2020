@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.ServiceLoader;
+import java.util.ServiceConfigurationError;
 
 /**
  * Resolves a service provider by its interface. This is used for the cache2k
@@ -57,13 +58,14 @@ public class SingleProviderResolver {
    * @param <T> type of provider interface
    *
    * @return instance of the provider, never null
-   * @throws java.lang.LinkageError if there is a problem instantiating the provider
-   *                                or no provider was specified
+   * @throws java.util.ServiceConfigurationError
+   *  if there is a problem instantiating the provider
+   *  or no provider was specified
    */
   public static <T> T resolveMandatory(Class<T> c) {
     T obj = resolve(c);
     if (obj == null) {
-      Error err = new LinkageError("No implementation found for: " + c.getName());
+      Error err = new ServiceConfigurationError("No implementation found for: " + c.getName());
       throw err;
     }
     return obj;

@@ -77,7 +77,7 @@ public class ParseCompleteTest {
     VariableExpander _expander = new StandardVariableExpander();
     _expander.expand(cfg);
     String _homeDirectory = System.getenv("HOME");
-    assertEquals(_homeDirectory, cfg.getStringPropertyByPath("properties.homeDirectory"));
+    assertEquals(_homeDirectory, cfg.getStringPropertyByPath(" "));
     assertEquals("123", cfg.getStringPropertyByPath("properties.forward"));
     assertEquals("5", cfg.getStringPropertyByPath("caches.hallo.entryCapacity"));
     assertEquals("products", cfg.getStringPropertyByPath("caches.products.eviction.duplicateName"));
@@ -85,7 +85,7 @@ public class ParseCompleteTest {
     assertEquals("123", cfg.getStringPropertyByPath("caches.products.eviction.cValue"));
     assertEquals("[123]", cfg.getStringPropertyByPath("caches.products.eviction.dValue"));
     assertEquals("123-products", cfg.getStringPropertyByPath("caches.products.eviction.eValue"));
-    assertEquals(_homeDirectory, cfg.getStringPropertyByPath("caches.products.eviction.directory"));
+    assertEquals(_homeDirectory, cfg.getStringPropertyByPath(" "));
     assertEquals("${CHACKA.farusimatasa}", cfg.getStringPropertyByPath("properties.illegalScope"));
     assertEquals("${ENV.HOME", cfg.getStringPropertyByPath("properties.noClose"));
   }
